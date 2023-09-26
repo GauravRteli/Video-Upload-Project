@@ -18,7 +18,7 @@ const corsparameters = {
 
 }
 app.use(cors({
-  origin: "http://192.168.1.5:3000",
+  origin: "*",
   credentials: true
 }));
 app.use(express.json());
