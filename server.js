@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = 3001 || process.env.PORT;
 
 const mongoose = require("mongoose");
 // mongoose connection '
@@ -12,8 +12,16 @@ const connectionparams = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
+const corsparameters = {
+  "Access-Control-Allow-Origin" : "*",
 
-app.use(cors());
+}
+app.use(cors({
+  "origin" : "*",
+  "methods" : "*",
+  "credentials": true,
+  "allowedHeaders": true
+}));
 app.use(express.json());
 app.use(require("./routes/FileRoutes"));
 const connectionDB = async () => {
