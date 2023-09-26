@@ -18,10 +18,7 @@ const corsparameters = {
 
 }
 app.use(cors({
-  "origin" : "*",
-  "methods" : "*",
-  "credentials": true,
-  "allowedHeaders": true
+  origin: "*"
 }));
 app.use(express.json());
 app.use(require("./routes/FileRoutes"));
