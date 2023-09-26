@@ -13,10 +13,7 @@ const connectionparams = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
-const corsparameters = {
-  "Access-Control-Allow-Origin" : "*",
 
-}
 app.use(cors({
   origin: "*",
   credentials: true
