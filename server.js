@@ -18,7 +18,8 @@ const corsparameters = {
 
 }
 app.use(cors({
-  origin: "*"
+  origin: "http://192.168.1.5:3000",
+  credentials: true
 }));
 app.use(express.json());
 app.use(require("./routes/FileRoutes"));
