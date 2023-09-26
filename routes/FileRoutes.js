@@ -4,10 +4,11 @@ const cloudinary = require("../Configs/CloudinaryConfig");
 const upload = require("../Configs/multerConfig");
 const VideoSchema = require("../Models/VideoSchema");
 const UploadToDB = require("../Utils/UploadsDB");
+const cors = require("cors");
 
 router.post(
   "/upload",
-  upload.fields([{ name: "image" }, { name: "video" }]),
+  upload.fields([{ name: "image" }, { name: "video" }]), cors(),
   async (req, res) => {
     // Accessing the uploaded 'thumbnail' and 'video' files via req.files
     if (!req.files || !req.files["image"] || !req.files["video"]) {
