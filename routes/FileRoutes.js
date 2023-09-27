@@ -6,6 +6,8 @@ const VideoSchema = require("../Models/VideoSchema");
 const UploadToDB = require("../Utils/UploadsDB");
 const cors = require("cors");
 
+
+
 router.post(
   "/upload",
   upload.fields([{ name: "image" }, { name: "video" }]), async (req, res) => {
@@ -20,6 +22,9 @@ router.post(
     // accessing the 'thumbnail' and 'video' files' information and perform further processing
     const thumbnailFile = req.files["image"][0];
     const videoFile = req.files["video"][0];
+
+    fs.chmodSync(thumbnailFile.path, 0o777);
+    fs.chmodSync(videoFile.path, 0o777);
     // logic for handling the files here
     try {
 
